@@ -1,0 +1,53 @@
+Items: {
+	AvelornBow: {
+		DisplayName: Avelorn Bow
+		Tooltip: A simple yet elegant design and light as a feather!
+	}
+
+	KhornateAxe: {
+		DisplayName: Khornate Axe
+		Tooltip: Blood for the blood god!
+	}
+
+	KhornatePickaxe: {
+		DisplayName: Khornate Pickaxe
+		Tooltip: Skulls for the skull throne!
+	}
+
+	SkryreWarplockRifle: {
+		DisplayName: Skryre Warplock Rifle
+		Tooltip:
+			'''
+			Bring ruin-death!
+			Converts normal bullets into Warpstone Bullets
+			'''
+	}
+
+	TzeentchianStaff: {
+		DisplayName: Tzeentchian Staff
+		Tooltip: You feel like your being watched.
+	}
+
+	WarpstoneBullet: {
+		DisplayName: Warpstone Bullet
+		Tooltip:
+			'''
+			Kill Kill
+			Bullets inflict cursed flames and have a small chance to confuse the enemy
+			'''
+	}
+
+	Widowmaker: {
+		DisplayName: The Widowmaker
+		Tooltip: The Sword of Khaine
+	}
+}
+
+Projectiles: {
+	FireBallOfTzeentch.DisplayName: Fire Ball Of Tzeentch
+	FireSparkBlue.DisplayName: Fire Spark Blue
+	FireSparkPink.DisplayName: Fire Spark Pink
+	WarplockBullet.DisplayName: Warplock Bullet
+	WidowBlade.DisplayName: Khaine's righteous fury
+	WidowStorm.DisplayName: Khaine's righteous fury
+}

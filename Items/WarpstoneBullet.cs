@@ -1,0 +1,46 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.Audio;
+
+namespace WarhammerLegendaryItems.Items
+{
+	public class WarpstoneBullet : ModItem
+	{
+		public override void SetStaticDefaults()
+		{
+			// DisplayName.SetDefault("Warpstone Bullet"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			// Tooltip.SetDefault("It is chaotically warm to the touch");
+		}
+
+		public override void SetDefaults()
+		{
+			Item.damage = 12;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 40;
+			Item.height = 40;
+			Item.knockBack = 2;
+			Item.value = 100;
+			Item.rare = 4;
+			Item.consumable = true;
+			Item.shoot = ModContent.ProjectileType<Projectiles.WarplockBullet>();
+			Item.ammo = AmmoID.Bullet;
+			Item.shootSpeed = 9f;
+			Item.maxStack = 999;
+
+        }
+
+
+        public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.EmptyBullet, 50);
+			recipe.AddIngredient(ItemID.SoulofNight, 2);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.ReplaceResult(this, 50);
+			recipe.Register();
+		}
+	}
+}
