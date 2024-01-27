@@ -11,7 +11,7 @@ using Terraria.Audio;
 
 namespace WarhammerLegendaryItems.Projectiles
 {
-	public class FireBallOfTzeentch : ModProjectile
+	public class TzeentchEyeball : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -20,9 +20,9 @@ namespace WarhammerLegendaryItems.Projectiles
         public override void SetDefaults()
 		{
 			Projectile.DamageType = DamageClass.Magic;
-            Projectile.aiStyle = 1;
-            Projectile.width = 20;
-			Projectile.height = 20;
+            Projectile.aiStyle = 0;
+            Projectile.width = 24;
+			Projectile.height = 24;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 			Projectile.penetrate = 3;
@@ -33,66 +33,75 @@ namespace WarhammerLegendaryItems.Projectiles
 			
 		}
 		int bounce = 0;
-		int maxBounce = 3;
+		int maxBounce = 0;
         
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
 			bounce++;
-            SoundEngine.PlaySound(SoundID.Item20.WithVolumeScale(0.5f).WithPitchOffset(8f), Projectile.position);
-            //Work in progress
-            int expandVelocity = 1;
-            Vector2 velocity1 = new Vector2(expandVelocity, expandVelocity);
-            Vector2 velocity2 = new Vector2(expandVelocity, -expandVelocity);
-            Vector2 velocity3 = new Vector2(-expandVelocity, expandVelocity);
-            Vector2 velocity4 = new Vector2(-expandVelocity, -expandVelocity);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity1, ModContent.ProjectileType<Projectiles.FireSparkPink>(), Projectile.damage/2, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity2, ModContent.ProjectileType<Projectiles.FireSparkBlue>(), Projectile.damage, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity3, ModContent.ProjectileType<Projectiles.FireSparkPink>(), Projectile.damage / 2, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity4, ModContent.ProjectileType<Projectiles.FireSparkBlue>(), Projectile.damage, 0, Projectile.owner);
-            if (Projectile.velocity.X != oldVelocity.X)
-			{
-				Projectile.velocity.X = -oldVelocity.X;
-			}
-			if (Projectile.velocity.Y != oldVelocity.Y) 
-			{ 
-				Projectile.velocity.Y = -oldVelocity.Y/2; 
-			}
-			
+            SoundEngine.PlaySound(SoundID.MaxMana.WithVolumeScale(1f).WithPitchOffset(8f), Projectile.position);
+            Projectile.velocity.X = 0;
+            Projectile.velocity.Y = 0;
+            return false;
 
-			if(bounce >= maxBounce)
-			{
-				return true;
-			}
-            else
-			{
-                return false;
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+            base.OnKill(timeLeft);
+            Vector2 dustPos = new Vector2(Projectile.position.X - 12, Projectile.position.Y - 12);
+            SoundEngine.PlaySound(SoundID.DD2_DarkMageCastHeal.WithVolumeScale(1f).WithPitchOffset(8f), Projectile.position);
+            for (int i = 0; i < 20; i++)
+            {
+                
+                int dust = Dust.NewDust(dustPos, Projectile.width + 24, Projectile.height + 24, DustID.Clentaminator_Purple, 0f, 0f, 0, default(Color), 1f);
+                Main.dust[dust].noGravity = false;
+                Main.dust[dust].velocity *= 0.2f;
+                Main.dust[dust].scale = (float)Main.rand.Next(80, 115) * 0.017f;
+                int trail = Dust.NewDust(dustPos, Projectile.width + 24, Projectile.height + 24, DustID.Clentaminator_Blue, 0f, 0f, 0, default(Color), 1f);
+                Main.dust[trail].noGravity = false;
+                Main.dust[trail].velocity *= 0.2f;
+                Main.dust[trail].scale = (float)Main.rand.Next(80, 115) * 0.017f;
             }
-            
+
         }
         //Boolean to see if projetile has hit an enemy. This helps homing only take effect before projectile hits an enemy.
         Boolean hasHit = false;
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             hasHit = true;
-            SoundEngine.PlaySound(SoundID.Item20.WithVolumeScale(0.5f).WithPitchOffset(8f), Projectile.position);
-            Projectile.velocity.X = Projectile.velocity.X * 1.5f;
-            Projectile.velocity.Y = Projectile.velocity.Y * 1.5f;
-            int expandVelocity = 1;
-            Vector2 velocity1 = new Vector2(expandVelocity, expandVelocity);
-            Vector2 velocity2 = new Vector2(expandVelocity, -expandVelocity);
-            Vector2 velocity3 = new Vector2(-expandVelocity, expandVelocity);
-            Vector2 velocity4 = new Vector2(-expandVelocity, -expandVelocity);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity1, ModContent.ProjectileType<Projectiles.FireSparkPink>(), Projectile.damage / 2, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity2, ModContent.ProjectileType<Projectiles.FireSparkBlue>(), Projectile.damage, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity3, ModContent.ProjectileType<Projectiles.FireSparkPink>(), Projectile.damage / 2, 0, Projectile.owner);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, velocity4, ModContent.ProjectileType<Projectiles.FireSparkBlue>(), Projectile.damage, 0, Projectile.owner);
-            //base.OnHitNPC(target, damage, knockback, crit);
+
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 dustPos= new Vector2(Projectile.position.X-12, Projectile.position.Y-12);
+                int dust = Dust.NewDust(dustPos, Projectile.width + 24, Projectile.height + 24, DustID.Clentaminator_Purple, 0f, 0f, 0, default(Color), 1f);
+                Main.dust[dust].noGravity = false;
+                Main.dust[dust].velocity *= 0.2f;
+                Main.dust[dust].scale = (float)Main.rand.Next(80, 115) * 0.017f;
+                int trail = Dust.NewDust(dustPos, Projectile.width + 24, Projectile.height + 24, DustID.Clentaminator_Blue, 0f, 0f, 0, default(Color), 1f);
+                Main.dust[trail].noGravity = false;
+                Main.dust[trail].velocity *= 0.2f;
+                Main.dust[trail].scale = (float)Main.rand.Next(80, 115) * 0.017f;
+            }
+            if (bounce==0) 
+            {
+                //Projectile.Kill();
+                
+                Projectile.velocity = new Vector2(0, 0);
+                bounce++;
+                SoundEngine.PlaySound(SoundID.MaxMana.WithVolumeScale(1f).WithPitchOffset(8f), Projectile.position);
+            }
         }
         public override void AI()
 		{
-			Projectile.velocity.Y += 0.05f;
-            //conditions for homing to take place
-            if (hasHit!=true)
+            //Projectile.velocity.Y += 0.05f;
+            if (Projectile.timeLeft == 370)
+            {
+                Projectile.velocity = new Vector2(0, 0);
+                bounce++;
+                SoundEngine.PlaySound(SoundID.MaxMana.WithVolumeScale(1f).WithPitchOffset(8f), Projectile.position);
+            }
+                //conditions for homing to take place
+                if (true) //always taking place (yes redundant)
             {
                 /*
                  * Start of homing code
@@ -107,7 +116,7 @@ namespace WarhammerLegendaryItems.Projectiles
                 }
                 float num134 = Projectile.position.X;
                 float num135 = Projectile.position.Y;
-                float num136 = 300f;
+                float num136 = 600f;
                 bool flag3 = false; //flag to check if the projectile can hit an enemy (basically if code later is actually hit or not)
                 int num137 = 0; //number to decide ai value of projectile
                 if (Projectile.ai[1] == 0f) //if no target aquired (i think)
@@ -135,7 +144,7 @@ namespace WarhammerLegendaryItems.Projectiles
                     }
                     flag3 = false; //flag is now false
                 }
-                if (Projectile.ai[1] > 0f) //if a target is already aquired || will try to change velocity to the appropriate values
+                if (Projectile.ai[1] > 0f) //if a target is already aquired || will try to change rotation (edited) to the appropriate values
                 {
                     int num142 = (int)(Projectile.ai[1] - 1f); //gets the target that is currently locked on 
                     if (Main.npc[num142].active && Main.npc[num142].CanBeChasedBy(this, true) && !Main.npc[num142].dontTakeDamage)
@@ -169,8 +178,30 @@ namespace WarhammerLegendaryItems.Projectiles
                     num146 *= num148;
                     num147 *= num148;
                     int num149 = 8;
-                    Projectile.velocity.X = (Projectile.velocity.X * (float)(num149 - 1) + num146) / (float)num149;
-                    Projectile.velocity.Y = (Projectile.velocity.Y * (float)(num149 - 1) + num147) / (float)num149;
+
+                    float subVelX = (1 * (float)(num149 - 1) + num146) / (float)num149;
+                    float subVelY = (1 * (float)(num149 - 1) + num147) / (float)num149;
+                    if (bounce>=0)
+                    {
+
+                    
+                        Projectile.rotation = (float)Math.Atan2((double)subVelY, (double)subVelX);
+                    }
+                    if(Projectile.timeLeft%30 == 0)
+                    {
+                        Vector2 laserVelocity = new Vector2(subVelX*10, subVelY*10);
+                        Vector2 laserPos = new Vector2(Projectile.position.X+12, Projectile.position.Y+12);
+                        SoundEngine.PlaySound(SoundID.MaxMana.WithVolumeScale(0.5f).WithPitchOffset(8f), Projectile.position);
+                        if (Projectile.timeLeft % 60 == 0)
+                        { 
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), laserPos, laserVelocity, ModContent.ProjectileType<Projectiles.FireSparkPink>(), Projectile.damage / 2, 0, Projectile.owner); 
+                        }
+                        else
+                        {
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), laserPos, laserVelocity, ModContent.ProjectileType<Projectiles.FireSparkBlue>(), Projectile.damage, 0, Projectile.owner);
+
+                        }
+                    }
                 }
                 /*
                  * End of homing AI
@@ -178,16 +209,16 @@ namespace WarhammerLegendaryItems.Projectiles
                  */
             }
 
-        Projectile.rotation = (float)Math.Atan2((double)Projectile.velocity.Y, (double)Projectile.velocity.X) + 1.57f;
+        
 			
-            int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Pink, 0f, 0f, 0, default(Color), 1f);
-            Main.dust[dust].noGravity = false;
-            Main.dust[dust].velocity *= 0.2f;
-            Main.dust[dust].scale = (float)Main.rand.Next(80, 115) * 0.013f;
-            int trail = Dust.NewDust(Projectile.position,Projectile.width,Projectile.height,DustID.Firework_Blue,0f,0f,0, default(Color), 1f);
+            //int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Clentaminator_Purple, 0f, 0f, 0, default(Color), 1f);
+            //Main.dust[dust].noGravity = false;
+            //Main.dust[dust].velocity *= 0.2f;
+            //Main.dust[dust].scale = (float)Main.rand.Next(80, 115) * 0.007f;
+            int trail = Dust.NewDust(Projectile.position,Projectile.width,Projectile.height,DustID.Clentaminator_Blue,0f,0f,0, default(Color), 1f);
 			Main.dust[trail].noGravity = false;
 			Main.dust[trail].velocity *= 0.2f;
-			Main.dust[trail].scale = (float)Main.rand.Next(80,115) * 0.013f;
+			Main.dust[trail].scale = (float)Main.rand.Next(80,115) * 0.007f;
 		}
 	}
 }

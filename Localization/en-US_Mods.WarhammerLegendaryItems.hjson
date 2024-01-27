@@ -41,6 +41,15 @@ Items: {
 		DisplayName: The Widowmaker
 		Tooltip: The Sword of Khaine
 	}
+
+	Metamorphose: {
+		DisplayName: Metamorphose
+		Tooltip:
+			'''
+			Eyes and tentacles coat the blade, releasing them every swing
+			Eyes focus on enemys occasionally releasing hot Tzeentchian flame 
+			'''
+	}
 }
 
 Projectiles: {
@@ -50,4 +59,5 @@ Projectiles: {
 	WarplockBullet.DisplayName: Warplock Bullet
 	WidowBlade.DisplayName: Khaine's righteous fury
 	WidowStorm.DisplayName: Khaine's righteous fury
+	TzeentchEyeball.DisplayName: Tzeentch Eyeball
 }
