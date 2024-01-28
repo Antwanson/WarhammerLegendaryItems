@@ -21,7 +21,7 @@ namespace WarhammerLegendaryItems.Items
             // Here we add a tooltipline that will later be removed, showcasing how to remove tooltips from an item
             
 
-            var line = new TooltipLine(Mod, "Test", "Any way you want me baby")
+            var line = new TooltipLine(Mod, "Test", "Is that blue thing blinking?")
             {
                 OverrideColor = new Color(100, 100, 255)
             };

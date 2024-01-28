@@ -50,6 +50,15 @@ Items: {
 			Eyes focus on enemys occasionally releasing hot Tzeentchian flame 
 			'''
 	}
+
+	Contortion: {
+		DisplayName: Contortion
+		Tooltip:
+			'''
+			Metal and fleshy slaaneshii tendrils form this sensually pleasing bow
+			Converts arrows into quicksilver arrows that call tentacles from the ground
+			'''
+	}
 }
 
 Projectiles: {
