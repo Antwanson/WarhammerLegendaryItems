@@ -76,7 +76,7 @@ namespace WarhammerLegendaryItems.Items
             if (Main.rand.NextBool(3))
             {
                 // Emit dusts when the sword is swung
-                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Clentaminator_Red);
+                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Clentaminator_Blue);
             }
         }
 

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,13 +29,28 @@ namespace WarhammerLegendaryItems.Items
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 			Item.shoot = 1;
-			Item.shootSpeed = 17f;
+			Item.shootSpeed = 12f;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.noMelee = true;
 
 		}
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Vector2 offset = new Vector2(velocity.X * 1, velocity.Y * 1);
+            position += offset;
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            return false;
 
-		public override void AddRecipes()
+        }
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+        {
+            if (type == ProjectileID.WoodenArrowFriendly)
+            { // or ProjectileID.WoodenArrowFriendly
+                type = ModContent.ProjectileType<Projectiles.QuicksilverArrow>(); // or ProjectileID.FireArrow;
+            }
+
+        }
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.HallowedBar, 10);

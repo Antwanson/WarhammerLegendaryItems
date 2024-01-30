@@ -69,4 +69,5 @@ Projectiles: {
 	WidowBlade.DisplayName: Khaine's righteous fury
 	WidowStorm.DisplayName: Khaine's righteous fury
 	TzeentchEyeball.DisplayName: Tzeentch Eyeball
+	QuicksilverArrow.DisplayName: Quicksilver Arrow
 }
