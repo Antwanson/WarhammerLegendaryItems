@@ -1,4 +1,4 @@
-Warhammer Items is a W.I.P. mod that aims to add some iconic artifacts from warhammer fantasy and some original complementary items and armor sets.
+Warhammer Items is a W.I.P. mod that aims to add some iconic artifacts from warhammer fantasy and some original complementary items and armor sets. This mod was made for fun and will most likely never be "finished" I am not sure if any update after this one will be coming to include content. I might try to keep it up to date with terraria though. I wouldn't say this mod is balanced, have fun!
 
 These items are mainly based on TW3's depictions.
 
@@ -11,7 +11,10 @@ The Widowmaker
 Skryre Warplock Rifle
 Warpstone Bullets
 
+**Recent Additions**
 
-More is in the works :)
+Metamorphose - attacks launch eyeballs that home in on enemies and spew tzeentchian fire
 
-Maybe...
+Contortion - Bow that fires special arrows that spawn tendrils on hit
+
+

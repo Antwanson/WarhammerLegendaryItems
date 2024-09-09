@@ -1,3 +1,3 @@
 displayName = Warhammer Items
 author = YumTheYum
-version = 0.24
+version = 0.33

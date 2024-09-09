@@ -59,6 +59,11 @@ Items: {
 			Converts arrows into quicksilver arrows that call tentacles from the ground
 			'''
 	}
+
+	ChaoticOre: {
+		DisplayName: Chaotic Ore
+		Tooltip: Cursed metal that is warm to the touch. Resting a hand upon this infernal scrap summons visions of unimaginable devastation
+	}
 }
 
 Projectiles: {
@@ -70,4 +75,11 @@ Projectiles: {
 	WidowStorm.DisplayName: Khaine's righteous fury
 	TzeentchEyeball.DisplayName: Tzeentch Eyeball
 	QuicksilverArrow.DisplayName: Quicksilver Arrow
+}
+
+Tiles.ChaoticOre.MapEntry: Chaotic Ore
+
+WorldGen: {
+	ExampleOrePassMessage: Mods.WarhammerLegendaryItems.WorldGen.ExampleOrePassMessage
+	BlessedWithExampleOreMessage: Mods.WarhammerLegendaryItems.WorldGen.BlessedWithExampleOreMessage
 }

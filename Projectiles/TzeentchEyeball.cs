@@ -170,14 +170,18 @@ namespace WarhammerLegendaryItems.Projectiles
                 if (flag3) //if target is still available then we actually set the velocities
                 {
                     float num145 = num133;
+                    //vector 10 is the projectile's position
                     Vector2 vector10 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
+                    // num146 is the x position of the projectile minus the x center of the projectile
                     float num146 = num134 - vector10.X;
+                    // num147 is the y position of the projectile minus the y center of the projectile
                     float num147 = num135 - vector10.Y;
+
                     float num148 = (float)Math.Sqrt((double)(num146 * num146 + num147 * num147));
                     num148 = num145 / num148;
                     num146 *= num148;
                     num147 *= num148;
-                    int num149 = 8;
+                    int num149 = 1;
 
                     float subVelX = (1 * (float)(num149 - 1) + num146) / (float)num149;
                     float subVelY = (1 * (float)(num149 - 1) + num147) / (float)num149;
@@ -187,7 +191,7 @@ namespace WarhammerLegendaryItems.Projectiles
                     
                         Projectile.rotation = (float)Math.Atan2((double)subVelY, (double)subVelX);
                     }
-                    if(Projectile.timeLeft%30 == 0)
+                    if(Projectile.timeLeft%20 == 0)
                     {
                         Vector2 laserVelocity = new Vector2(subVelX*10, subVelY*10);
                         Vector2 laserPos = new Vector2(Projectile.position.X+12, Projectile.position.Y+12);

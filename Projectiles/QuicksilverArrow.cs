@@ -78,7 +78,7 @@ namespace WarhammerLegendaryItems.Projectiles
 			Main.dust[trail].scale = (float)Main.rand.Next(80,115) * 0.013f;
             */
 		}
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.DD2_DarkMageSummonSkeleton.WithVolumeScale(0.5f).WithPitchOffset(5f), Projectile.position);
             for(var i =0; i < 6; i++)
