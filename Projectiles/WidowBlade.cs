@@ -25,16 +25,16 @@ namespace WarhammerLegendaryItems.Projectiles
 			Projectile.height = 4;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.penetrate = 6;
+			Projectile.penetrate = 60;
 			Projectile.timeLeft = 500;
 			Projectile.light = 0f;
             
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
 			Projectile.knockBack = 5;
-			
-			
-		}
+
+
+        }
         
         
         //public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

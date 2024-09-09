@@ -29,8 +29,10 @@ namespace WarhammerLegendaryItems.Projectiles
 			Projectile.light = .5f;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
-			
-		}
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 40;
+
+        }
 		int bounce = 0;
 		int maxBounce = 3;
         

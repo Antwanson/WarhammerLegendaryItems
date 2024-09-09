@@ -25,11 +25,13 @@ namespace WarhammerLegendaryItems.Projectiles
 			Projectile.height = 200;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.penetrate = 99;
+			Projectile.penetrate = 99999;
 			Projectile.timeLeft = 350;
 			Projectile.light = 2f;
-            
-			Projectile.ignoreWater = true;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
+
+            Projectile.ignoreWater = true;
 			Projectile.tileCollide = true;
 			Projectile.knockBack = 5;
 			

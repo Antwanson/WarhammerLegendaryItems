@@ -18,8 +18,8 @@ namespace WarhammerLegendaryItems.Items
 
 		public override void SetDefaults()
 		{
-			Item.damage = 100;
-			Item.mana = 8;
+			Item.damage = 55;
+			Item.mana = 50;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 50;
 			Item.height = 50;
