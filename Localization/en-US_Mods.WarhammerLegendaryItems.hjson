@@ -78,6 +78,11 @@ Items: {
 			slumbering like a beast waiting to be stirred...
 			'''
 	}
+
+	NurglingStaff: {
+		DisplayName: Nurgling Staff
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -89,6 +94,7 @@ Projectiles: {
 	WidowStorm.DisplayName: Khaine's righteous fury
 	TzeentchEyeball.DisplayName: Tzeentch Eyeball
 	QuicksilverArrow.DisplayName: Quicksilver Arrow
+	NurglingMinion.DisplayName: Nurgling Minion
 }
 
 Tiles.ChaoticOre.MapEntry: Chaotic Ore
@@ -96,4 +102,11 @@ Tiles.ChaoticOre.MapEntry: Chaotic Ore
 WorldGen: {
 	ExampleOrePassMessage: Mods.WarhammerLegendaryItems.WorldGen.ExampleOrePassMessage
 	BlessedWithExampleOreMessage: Mods.WarhammerLegendaryItems.WorldGen.BlessedWithExampleOreMessage
+}
+
+Buffs: {
+	NurglingMinionBuff: {
+		DisplayName: Nurgling Minion Buff
+		Description: Mods.WarhammerLegendaryItems.Buffs.NurglingMinionBuff.Description
+	}
 }
