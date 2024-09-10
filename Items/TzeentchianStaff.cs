@@ -3,6 +3,8 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using WarhammerLegendaryItems.Items.Placeable;
+
 
 
 namespace WarhammerLegendaryItems.Items
@@ -65,7 +67,7 @@ namespace WarhammerLegendaryItems.Items
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.HallowedBar, 10);
+			recipe.AddIngredient<DemonSteelBar>(10);
 			recipe.AddIngredient(ItemID.SoulofFright, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

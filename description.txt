@@ -4,17 +4,17 @@ These items are mainly based on TW3's depictions.
 
 Current Items:
 
-Tzeentchian Staff
-Khornate Pickaxe and Axe
-Avelorn Bow
-The Widowmaker
-Skryre Warplock Rifle
-Warpstone Bullets
-
-**Recent Additions**
-
+Tzeentchian Staff - a staff that shoots balls of tzeentchian fire
+Khornate Pickaxe and Axe - tools made in the the blood god's image
+Avelorn Bow - Lame bow I used to learn how to make a bow (will be improved later)
+The Widowmaker - the sword of Khaine
+Skryre Warplock Rifle - fires warpstone bullets
+Warpstone Bullets - bounce off walls and make funny noises
 Metamorphose - attacks launch eyeballs that home in on enemies and spew tzeentchian fire
-
 Contortion - Bow that fires special arrows that spawn tendrils on hit
 
+**ORE UPDATE**
+Added new ore to be found!!
+Use Chaotic Ore with Gold Ore to make Demonsteel and craft items from the mod :)
+(adamantite pick required :p)
 

@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using System.Collections.Generic;
 using System.Net.Mail;
+using WarhammerLegendaryItems.Items.Placeable;
+
 
 namespace WarhammerLegendaryItems.Items
 {
@@ -95,8 +97,8 @@ namespace WarhammerLegendaryItems.Items
         public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.HallowedBar, 10);
-			recipe.AddIngredient(ItemID.SoulofSight, 5);
+            recipe.AddIngredient<DemonSteelBar>(10);
+            recipe.AddIngredient(ItemID.SoulofSight, 5);
             recipe.AddIngredient(ItemID.Lens, 3);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

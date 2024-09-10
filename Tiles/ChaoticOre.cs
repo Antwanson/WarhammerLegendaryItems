@@ -29,7 +29,7 @@ namespace WarhammerLegendaryItems.Tiles
 			DustType = 36;
 			HitSound = SoundID.Tink;
 			MineResist = 4f;
-			MinPick = 200;
+			MinPick = 180;
 		}
 
 		// Example of how to enable the Biome Sight buff to highlight this tile. Biome Sight is technically intended to show "infected" tiles, so this example is purely for demonstration purposes.

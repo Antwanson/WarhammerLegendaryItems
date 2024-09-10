@@ -62,7 +62,21 @@ Items: {
 
 	ChaoticOre: {
 		DisplayName: Chaotic Ore
-		Tooltip: Cursed metal that is warm to the touch. Resting a hand upon this infernal scrap summons visions of unimaginable devastation
+		Tooltip:
+			'''
+			Cursed metal that is warm to the touch. 
+			Resting a hand upon this infernal scrap summons visions of unimaginable devastation
+			'''
+	}
+
+	DemonSteelBar: {
+		DisplayName: Demon Steel Bar
+		Tooltip:
+			'''
+			Offering gold to the accursed metal has tempered its fury, 
+			yet much of its dark power now lies dormant, 
+			slumbering like a beast waiting to be stirred...
+			'''
 	}
 }
 
